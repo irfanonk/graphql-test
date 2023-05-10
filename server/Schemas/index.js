@@ -17,7 +17,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(UserType),
       args: { id: { type: GraphQLInt } },
       resolve(parent, args) {
-        return userData;
+        return userData.slice(-250);
       },
     },
   },

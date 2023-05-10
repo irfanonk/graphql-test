@@ -6,7 +6,7 @@ import {
 import { useMutation } from "@apollo/client";
 
 function Form({ updateUserData }) {
-  console.log("Form  updateUserData:", updateUserData);
+  // console.log("Form  updateUserData:", updateUserData);
   const [firstName, setFirstName] = useState(updateUserData?.firstName ?? "");
   const [lastName, setLastName] = useState(updateUserData?.lastName ?? "");
   const [email, setEmail] = useState(updateUserData?.email || "");
@@ -31,7 +31,7 @@ function Form({ updateUserData }) {
   };
 
   const editUser = () => {
-    console.log("update user", firstName);
+    // console.log("update user", firstName);
     updateUser({
       variables: {
         id: updateUserData.id,
