@@ -12,7 +12,13 @@ function Form({ updateUserData }) {
   const [email, setEmail] = useState(updateUserData?.email || "");
   const [password, setPassword] = useState(updateUserData?.password ?? "");
 
-  const [createUser, { error }] = useMutation(CREATE_USER_MUTATION);
+  const [createUser, { error }] = useMutation(CREATE_USER_MUTATION, {
+    onCompleted({ createUser: data }) {
+      if (data) {
+        console.log("createUser  data:", data);
+      }
+    },
+  });
   const [updateUser, { errorEdit }] = useMutation(UPDATE_USER_MUTATION);
 
   const addUser = () => {
